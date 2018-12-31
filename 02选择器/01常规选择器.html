@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<script src="../js/jquery-3.2.0.js" type="text/javascript"></script>
-		
-		<script type="text/javascript">
-/*id选择器再jQuery中只能返回一次，即使有多个相同的id*/		
-			$(function (){
-				$("#aaa").css("color","red");
-				$(".bbb").css('background-color','yellow');
-				$("div").css('font-weight',"bold");
-				
-				
-/*jQuery选择器和css类似，但兼容各种浏览器*/	
 
-/*children()	等价子选择器*/
-				$('.ccc > p').css('font-style','italic');       /*子元素选择器*/
-				$('.ccc').children('p').css('font-size','30px');
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/jquery-3.2.0.js" type="text/javascript"></script>
 
-/*find()		后代选择器*/
-				$('.ccc p').css('color','blue')
-				$('.ccc').find('p').css('color','blue')
-			})
-			
-		</script>
-	</head>
-	<body>
-		<div id="aaa">常规选择器</div>
-		<div class="bbb" id="aaa">常规选择器</div>
-		
-		<div class="ccc">
-			<p>000000000</p>
-			<p>000000000</p>
-			<p>000000000</p>
-			<div class="ddd">
-				<p>000000000</p>
-				<p>000000000</p>
-				<p>000000000</p>
-			</div>
-		</div>
-	</body>
+    <script type="text/javascript">
+        /*id选择器再jQuery中只能返回一次，即使有多个相同的id*/
+        $(function() {
+            $("#aaa").css("color", "red");
+            $(".bbb").css('background-color', 'yellow');
+            $("div").css('font-weight', "bold");
+
+
+            /*jQuery选择器和css类似，但兼容各种浏览器*/
+
+            /*children()	等价子选择器*/
+            $('.ccc > p').css('font-style', 'italic'); /*子元素选择器*/
+            $('.ccc').children('p').css('font-size', '30px');
+
+            /*find()		后代选择器*/
+            $('.ccc p').css('color', 'blue')
+            $('.ccc').find('p').css('color', 'blue')
+        })
+    </script>
+</head>
+
+<body>
+    <div id="aaa">常规选择器</div>
+    <div class="bbb" id="aaa">常规选择器</div>
+
+    <div class="ccc">
+        <p>000000000</p>
+        <p>000000000</p>
+        <p>000000000</p>
+        <div class="ddd">
+            <p>000000000</p>
+            <p>000000000</p>
+            <p>000000000</p>
+        </div>
+    </div>
+</body>
+
 </html>
