@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		<script type="text/javascript">
+			$(function(){
+/*click，mouseover是系统事件，自定义事件就是自己起名字的事件*/				
+				$('#aaa').bind('myEvent',function(){
+					console.log('自定义事件')
+				}).trigger('myEvent')
+			})
+		</script>
+	</head>
+	<body>
+		<input type="button" name="aaa" id="aaa" value="自定义事件" />
+	</body>
+</html>

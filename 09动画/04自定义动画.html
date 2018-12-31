@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{width:100px;height:50px;background:red;
+				position: relative;}
+		</style>
+		
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		<script type="text/javascript">
+			$(function(){
+/*animate	自定义动画*/
+	/*同步动画	所有css属性同时变化*/
+				$('#aaa').click(function(){
+					$('.aaa').animate({
+						'width':'200px',
+						'height':'200px',
+						'opacity':'0.5',
+						'fontSize':'50px',
+					},1000,function(){
+						console.log('动画执行完毕')
+					})
+				})
+			
+	/*可以进行元素位置的设置，但要先在css中设置position
+	 自定义动画每次运动都在必须在初始位置，可以使用+=累加功能持续多次移动*/
+				$('#bbb').click(function(){
+					$('.bbb').animate({
+						'left':'+=5px'
+					},'fast',function(){
+						console.log('向右移动了5px')
+					})
+				})
+/*列队动画	样式一个一个执行*/
+	 	/*回调函数	可适用不同元素		不够清晰*/
+				$('#ccc').click(function(){
+					$('.ccc').animate({
+						width:'300px'
+					},function(){
+						$(this).animate({
+							height:'200px'
+						},function(){
+							$(this).animate({
+								opacity:'0.5'
+							})
+						})
+					})
+				}) 
+		/*连缀	只适用于一个元素*/		
+				$('#ddd').click(function(){
+					$('.ddd').animate({width:'300px'})
+							 .animate({height:'300px'})
+							 .animate({opacity:0.5})
+							 .animate({'background':'yellow'})
+				})
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div class="aaa">多重动画同步运动</div>
+		<button id="aaa">同步动画</button><br />
+		
+		<div class="bbb">位置变化</div>
+		<button id="bbb">位置</button><br />
+		
+		<div class="ccc">列队动画</div>
+		<button id="ccc">回调函数</button><br />
+		
+		<div class="ddd">列队动画</div>
+		<button id="ddd">连缀</button>
+	</body>
+</html>

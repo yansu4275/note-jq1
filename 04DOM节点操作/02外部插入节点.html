@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{height: 100px;width: 100px;}
+			.aaa{background-color: yellow;}
+			.bbb{background-color: red;}
+			.ccc{background-color: green;}
+			.ddd{background-color: blue;}
+		</style>
+		
+		<script src="../js/jquery-3.2.0.js" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+//after		向指定元素外部后面插入节点				
+				$('.aaa').after('<p>在aaa后面插入</p>')
+
+//after(function(index,html))	使用匿名函数向指定元素外部后面插入
+				$('div').slice(0,2).after(function(index,html){
+					return '<span>after匿名函数</span>' + index + html
+				})
+				
+				
+//before	向指定元素外部前面插入节点				
+				$('.ccc').before('<p>在ccc前面插入</p>')
+				
+//before(function(index,html))	使用匿名函数向指定元素外部前面插入
+				$('div').slice(2,4).before(function(index,html){
+					return '<span>before匿名函数</span>'+index+html
+				})
+
+
+//insertAfter	将某节点移入到一节点后面
+				$('.eee').insertAfter('.bbb');
+				
+//insertBefore	将某节点移入到一节点前面
+				$('.fff').insertBefore('.aaa')
+			})
+		</script>
+	</head>
+	<body>
+		<div class="aaa">aaaaaa</div><hr />
+		<div class="bbb">bbbbbb</div><hr />
+		<div class="ccc">cccccc</div><hr />
+		<div class="ddd">dddddd</div>
+		
+		<p class="eee">移动的p元素1</p>
+		<p class="fff">移动的p元素2</p>
+	</body>
+</html>

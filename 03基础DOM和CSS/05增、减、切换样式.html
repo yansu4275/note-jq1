@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style type="text/css">
+			.aaa{color:red}
+			.bbb{font-size:20px}
+			.ccc{background-color: yellow;}
+			.ddd{color:green}
+			.eee{background-color: orange;}
+		</style>
+		
+		<script src="../js/jquery-3.2.0.js" type="text/javascript"></script>
+
+
+<!--addClass	给标签添加css中的class样式
+	removeClass	删除标签中的样式
+-->
+		<script type="text/javascript">
+		$(function(){
+			$('div:first').addClass('aaa bbb ccc');
+			$('div:first').removeClass('aaa');
+			
+			
+/*toggleClass	点击切换class样式		可增加频率*/
+			$('div:eq(1)').click(function(){
+				$(this).toggleClass('aaa');
+			})
+			
+		/*toggleClass	后面可以增加一个boolean判断代码，
+		 	如下：设点击次数为abcde，，abcde++%3为点击数增加取余3，结果为0时采用样式，既频率为三*/
+			var abcde=0;
+			$('div:eq(2)').click(function(){
+				$(this).toggleClass('ccc',abcde++%3==0);
+			})
+			
+			
+/*多种样式的切换	第二个toggleClass可换成addClass*/	
+		/*click的局部，toggle的全局*/
+			$('div:eq(3)').click(function(){
+				$(this).toggleClass('ccc');
+				if($(this).hasClass("ccc")){
+					$(this).removeClass('eee')
+				}
+				else{$(this).toggleClass('eee')}
+			})
+		
+		/*toggle的局部，更好*/
+			$('div:eq(4)').click(function(){
+				$(this).toggleClass(function(){
+					//局部
+					if($(this).hasClass('ccc')){
+						$(this).removeClass('ccc');
+						return 'eee'
+					}
+					else{
+						$(this).removeClass('eee');
+						return 'ccc'
+					}
+				})
+			})
+		})
+		
+		
+			
+		</script>
+		
+	</head>
+	<body>
+		<div id="a111">删减样式</div>
+		<div id="b111">切换样式</div>
+		<div id="c111">切换样式频率</div>
+		<div id="c111">两种样式的切换</div>
+		<div id="c111">两种样式的切换。局部方式</div>
+	</body>
+</html>

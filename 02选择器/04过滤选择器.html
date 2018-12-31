@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				$('li:first').css('font-size','20px')
+				$('#aaa li:last').css('font-size','30px')
+				$('ul:first:not(.bbb)').css('color','blue')
+			
+			/*even 	从0开始的偶数（第一个是0）*/
+				$('#aaa li:even').css('background-color','yellow');
+			/*odd 	从0开始的奇数（第一个是1）*/
+				$('#aaa li:odd').css('background-color','red');
+			
+			/*eq	从0开始往下数，第几个（第一个是0）
+					也可以从下往上，但倒数第一个是-1*/
+				$('#aaa li:eq(2)').css('font-weight','bold');
+				$('#aaa li:eq(-3)').css('font-weight','bold');
+				
+			/*gt	从第几个开始往下所有                       第一个是0*/	
+				$('ul:last li:gt(1)').css('background-color','lawngreen');
+				
+			/*lt	选择小于第几个的                       第一个是0*/	
+				
+				
+				
+				
+			/*:header	选择 h1~h6 所有标题*/	
+				$(':header').css('background-color','yellow')
+				
+				/*选择div中的标题   	（要加空格）*/
+				$('div :header').css('background-color','cornflowerblue')
+				
+				/*选择具体一个级别的标题*/
+				$('h3:header').css('background-color','green');
+			
+			
+			/*:focus	选择当前被焦点的元素	光标		
+			 			必须是网页初始状态的已经被激活，而不是鼠标点击激活*/
+			 			
+				/*选取第二个input，默认激活元素焦点*/
+				$('input').get(1).focus(); 
+				
+				$('input:focus').css('background-color','red')
+				
+			})
+		</script>
+	</head>
+	<body>
+		<ul id="aaa">
+			<li class="bbb">列表1</li>
+			<li>列表2</li>
+			<li>列表3</li>
+			<li>列表4</li>
+			<li>列表5</li>
+			<li>列表6</li>
+		</ul>
+		
+		<ul>
+			<li>列表1</li>
+			<li>列表2</li>
+			<li>列表3</li>
+			<li>列表4</li>
+			<li>列表5</li>
+			<li>列表6</li>
+		</ul>
+		
+		
+		
+			<h1>1111111111111111</h1>
+		<div>
+			<h2>222222222222222222</h2>
+		</div>
+			<h3>333333333333333333</h3>
+			
+			
+		<input type="text" name="" id="" value="" />	
+		<input type="text" name="" id="" value="" />	
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.aaa{width: 100px;height: 100px;background-color: red;}
+		</style>
+		
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		<script type="text/javascript">
+			$(function(){
+/*冒泡：有子元素时，点击子元素会同时触发父元素
+  stopPropagation		禁止冒泡
+  isPropagationStopped	判断是否调用了stopPropagation
+  isImmediatePropagationStopped()	取消事件冒泡并取消该事件后续处理函数*/
+				$('.bbb').click(function(e){
+					e.stopPropagation();
+					console.log('input')
+					console.log('是否调用stopPropagation:'+ e.isPropagationStopped());
+				})
+				$('.aaa').click(function(e){
+					e.stopPropagation()
+					console.log('div')
+				})
+				$(document).click(function(){
+					console.log('document')
+				})
+				
+/*preventDefault		阻止默认行为
+  isDefaultPrevented	判断是否调用了preventDefault*/
+				$('.ccc').click(function(e){
+					e.preventDefault();
+					console.log('阻止超链接默认行为');
+					console.log('判断是否调用preventDefault：' + e.isDefaultPrevented())
+				})
+
+
+/*return false：		既阻止冒泡，又阻止默认行为*/
+				$('.ddd').click(function(e){
+					return false;
+					console.log('既阻止冒泡，又阻止默认行为')
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="aaa">
+			<input type="button" class="bbb" value="按钮" />
+		</div>
+		<br />
+		<a href="http//ww.baidu.com" target="_blank" class="ccc">阻止默认行为</a>
+		<br /><br /><br />
+		<a href="http//ww.baidu.com" target="_blank" class="ddd">既阻止冒泡，又阻止默认行为</a>
+	</body>
+</html>

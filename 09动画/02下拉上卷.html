@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		<style type="text/css">
+			div{width:200px;height:50px;background:yellow;}
+			.aaa,.ccc{display: none;}
+		</style>
+		
+		<script type="text/javascript">
+			$(function(){
+/*slideDown()	下拉显示动画，必须是隐藏了的元素*/				
+				$('button:first').click(function(){
+					$('.aaa').slideDown(1000)
+				}) 
+				
+				
+/*slideUp()		上卷隐藏*/				
+				$('button:eq(1)').click(function(){
+					$('.bbb').slideUp(1000)
+				})
+
+
+/*slideToggle()	下拉上卷切换*/
+				$('#ccc').click(function(){
+					$('.ccc').slideToggle(1000)
+				})
+				
+/*多元素依次隐藏显示*/				
+				$('#aaa').click(function(){
+					$('.a1').first().slideUp('fast',function aaaaa(){
+						$(this).next().slideUp('fast',aaaaa)
+					})
+				})
+				$('#bbb').click(function(){
+					$('.a1').last().slideDown('fast',function testShow(){
+						$(this).prev().slideDown('fast',testShow)
+					})
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="aaa"></div>
+		<button>点击下拉动画</button><br />
+		
+		<div class="bbb"></div>
+		<button>点击上卷动画</button><br />
+		
+		<div class="ccc">上拉下卷切换</div>
+		<button id="ccc">下拉上卷切换</button><br />
+		
+		<span>
+			<div class="a1">1</div>
+			<div class="a1">2</div>
+			<div class="a1">3</div>
+			<div class="a1">3</div>
+		</span>
+		<button id="aaa">隐藏</button>
+		<button id="bbb">显示</button>
+		
+	</body>
+</html>

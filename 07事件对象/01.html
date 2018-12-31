@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.aaa{width: 100px;height: 100px;background-color: red;}
+			.bbb{width: 50px;height: 50px;background-color: yellow;}
+		</style>
+		
+		
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		<script type="text/javascript">
+			$(function() {
+		/*获取事件类型名称*/			
+				$('#abc').click(function(e){
+					console.log(e.type);
+				})
+				
+				$('.aaa').click(function(e){
+		/*target获取触发元素的DOM，就是点了哪个就是哪个*/			
+		/*currentTarget得到的是监听元素的DOM，绑定哪个就是哪个*/
+			/*获取div，点击p位置，taget得到的是p，currentTarget得到div*/
+					console.log("点击target得到：" + e.target);
+					console.log("点击currentTarget得到：" + e.currentTarget)
+				})
+
+
+		/*获取事件调用时的额外数据，数据、字符串、数组*/
+				$('#bcd').bind('click',[1,2,3,'a','b','c'],function(e){
+					console.log(e.data)
+					console.log(e.data[4])
+				})
+				
+				
+				
+				
+		/*坐标*****************************************************/		
+//				$(document).click(function(e){
+//					console.log("页面原点坐标" + e.pageX + ','+ e.pageY)
+//					console.log("屏幕原点坐标" + e.screenX+','+e.screenY)
+//					console.log("页面原点滚动轴"+e.clientX+','+e.clientY)
+//				})
+				
+				
+		/*result获取上一个相同事件的返回值*/		
+				$('#cde').bind('click',function(e){
+					return 123;
+				}).click(function(e){
+					console.log(e.result)
+				})
+				
+		/*timeStamp获取时间戳*/		
+				$('#def').click(function(e){
+					console.log( e.timeStamp)
+				})
+		
+		
+		/*which获取鼠标键盘按键	mousedown：鼠标	keyup：键盘*/
+				$('#efg').bind('mousedown keyup',function(e){
+					console.log(e.which)
+				})
+				
+		/*获取鼠标点击时是否按下三个按键*/		
+				$('#fgh').click(function(e){
+					console.log("是否按下alt："+e.altKey)
+					console.log("是否按下shift："+e.shiftKey)
+					console.log("是否按下ctrl："+e.ctrlKey)
+				})
+				
+			});
+		</script>
+	</head>
+	<body>
+		<input type="button" name="" id="abc" value="按钮" />
+		<div  class="aaa">
+			<p class="bbb"></p>
+		</div>
+		<input type="button" name="" id="bcd" value="坐标" />
+		<br />
+		<input type="button" name="" id="cde" value="返回值result" />
+		<br />
+		<input type="button" name="" id="def" value="时间戳" />
+		<br />
+		<input type="text" name="" id="efg" value="" />
+		<br />
+		<input type="button" name="" id="fgh" value="alt/shift/ctrl" />
+		
+		
+	</body>
+</html>

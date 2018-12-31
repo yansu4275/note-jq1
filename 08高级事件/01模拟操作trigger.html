@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('#aaa').click(function(){
+	/*tigger处理器模拟用户点击操作，
+	 * 冒泡*/
+					console.log('模拟用户操作来触发1')
+				});
+				$('#aaa').trigger('click');
+				
+//	/*简写1*/		
+				$('#bbb').click(function(){
+					console.log('模拟用户操作来触发简写1')
+				}).trigger('click'); 
+				
+	/*简写2		有些可能会失效，一般没问题*/	
+				$('#ccc').click(function(){
+					console.log('模拟用户操作来触发简写2')
+				}).click()
+				
+		
+	/*trigger额外数据，只有一条时，可省略中括号[]
+	 		多条不能省略，里面可以再添加中括号添加字符串
+	 		可以传递对象*/
+				$('#ddd').click(function(e,data1,data2,data3){
+					console.log(data1+'|'+data2+'|'+data3+'|')
+				}).trigger('click',['123','abc',['草','你','马']])
+				
+				
+/*triggerHandler	模拟操作，并且阻止默认行为，不冒泡*/				
+				$('#eee').triggerHandler('submit');
+				
+	/*targgerHandler	有多个相同操作时，只模拟一次，trigger模拟多次*/			
+				$('div input').click(function(){
+					console.log('trigger模拟操作')
+				}).trigger('click')
+				
+				$('div input').click(function(){
+					console.log('triggerHandler模拟操作')
+				}).triggerHandler('click')
+			})
+			
+			
+			
+		</script>
+	</head> 
+	<body>
+		<input type="button" name="aaa" id="aaa" value="模拟操作按钮" />
+		<br /><br />
+		<input type="button" name="bbb" id="bbb" value="简写1" />
+		<br /><br />
+		<input type="button" name="ccc" id="ccc" value="简写2" />
+		<br /><br />
+		<input type="button" name="ddd" id="ddd" value="额外数据" />
+		<br /><br />
+		<form action="" method="post">
+			<input type="submit" value="确认" id="eee"/>
+		</form>
+		<br /><br /><br />
+		<div>
+			<input type="button" id="" value="triggerHandler模拟操作" />
+			<input type="button" id="" value="triggerHandler模拟操作" />
+			<input type="button" id="" value="triggerHandler模拟操作" />
+		</div>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+			/*显示隐藏的内容，背景黄色，1秒钟内慢慢显示*/	
+				$('div:hidden').css('background-color','yellow').show(1000);
+				$('div:visible').css('color','red');
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div style="display: none;">1111111111111111</div>
+		<div>2222222222222222222</div>
+		<div>333333333333333333333</div>
+		<div>4444444444444444444444</div>
+	</body>
+</html>

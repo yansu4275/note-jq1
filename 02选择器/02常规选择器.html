@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		<script type="text/javascript">
+			$(function(){
+
+/*next()  	相当于div+p   兄弟元素选择器    */
+				$('#aaa').next('p').css('background-color','yellow');
+				$('#bbb').next().css('font-size','20px');
+
+/*nextALL   相当于div~p		(div后面的所有 p 元素)*/
+				$('#aaa').nextAll('p').css('color','red');
+				$('#bbb').nextAll().css('background-color','greenyellow');
+				
+				
+/*prev()	上一个节点*/				
+/*prevALL()		上面的所有同级某种节点*/
+
+/*nextUntil()		从某节点开始往下，直到一个节点位置*/
+/*prevUntil()		从某节点开始往上，直到一个节点位置*/
+
+/*aaa的上面所有div以及下面所有p		不能合在一起写************************/
+				$('#aaa').nextAll('p').css('font-weight','bold');
+				$('#aaa').prevAll('div').css('font-weight','bold');
+
+/*siblings		上下左右同级节点*/
+				$('#ccc').siblings('span,ul').css('color','blue')
+			})
+		</script>
+		
+		
+		
+	</head>
+	<body>
+		<div>00000000000</div>
+		<div>00000000000</div>
+		<div id="aaa">aaaaaaaaaaaa</div>
+		
+		<p id="bbb">bbbbbbbbbbbbbb</p>
+		<p>33333333333333</p>
+		<p>33333333333333</p>
+		
+		<span>6666666</span>
+		<span id="ccc">6666666</span>
+		<span>6666666</span>
+		
+		<ul>
+			<li>4444444</li>
+			<li>4444444</li>
+		</ul>
+	</body>
+</html>

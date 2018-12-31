@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{width:100px;height:100px;background:red;}
+		</style>
+		
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		<script type="text/javascript">
+			$(function(){
+/*css样式在列队对话中会默认先执行，可以用queue()*/				
+				
+/*queue()	模拟动画方法跟随动画 方法之后
+ 	如果想在queue()后面再添加样式，需要早queue()里添加next()或者$(this).dequeue()*/
+				$('.button1').click(function(){
+					$('.div1')
+								.slideUp('slow')
+								.slideDown('slow')
+								.queue(function(){
+									$(this).css('background','orange');
+									//next();*************版本低的不能用
+									$(this).dequeue()
+								})
+								.hide('slow')
+				}) 
+			})
+		</script>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<button class="button1">列队动画</button>
+	</body>
+</html>

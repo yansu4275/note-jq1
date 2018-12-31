@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>内容过滤器</title>
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+			/*:contains		选择有某内容的标签*/	
+				$('div:contains("baidu")').css('color','red');
+			
+			/*:empty	选择内容为空的标签*/
+				$('div:empty').css('background-color','blue').css('height','20px');
+				
+			/*:has()	子元素中含某class的父元素*/	
+				$('div:has(.aaa)').css('background-color','yellow');
+				$('div').has('.aaa').css('color','orange');   /*jQuery方法*/
+				
+			
+			/*:parent	选取含有子元素或文本的*/
+				$('div:parent').css('font-size','30px');
+				
+				
+			})
+		</script>
+		
+	</head>
+	<body>
+		<div>www.baidu.com</div>
+		<div>www.goole.com</div>
+		<div></div>
+		<div>
+			<p class="aaa">11111111111111111</p>
+			<p>222222222222222222</p>
+			<p>3333333333333333</p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.bbb{width:200px;height:100px;background-color:yellow;}
+			.ccc{width:200px;height:100px;background-color:red;}
+			.ddd{width:200px;height:100px;background-color:green;}
+		</style>
+		
+		<script src="../js/jquery-3.2.0.js" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+/*创建节点*/				
+				var aaa =$('<div id="aaa">创建的节点aaa</div>');
+				
+/*插入节点*/	
+//append(content)	向指定元素内部后面插入
+				$('body').append(aaa);			
+				
+//append(function(index,html))	使用匿名函数向指定节点内部后面插入
+			//index：div有多个时从零开始索引
+			//html：获取原本里面的内容，会在加入的节点后面再显示一遍原内容
+				$('div').slice(0,2).append(function(index,html){
+					return '<span>匿名函数插入</span>' + index+ html
+				})
+
+//appendTo()	移入操作，移入节点后面，不需要创建节点
+				$('p').appendTo('div:eq(2)');
+				
+				
+//prepend()		向指定元素内部前面插入
+
+//prepend(function(index,html))		使用匿名函数向指定节点内部前面插入
+
+//prependTo()	移入操作，移入节点的内部前面，不需要创建节点
+			})
+		</script>
+	</head>
+	<body>
+		<div class="bbb">222</div>
+		<div class="ccc">333</div>
+		<div class="ddd">444</div>
+		<p>ppppppp</p>
+		
+	</body>
+</html>

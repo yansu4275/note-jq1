@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+/*is	判断*/				
+				console.log($('.aaa').is('li'));
+				
+		/*判断aaa是否为第二个li*/
+				console.log($('.aaa').is($('li').get(1)));
+				
+				
+		
+		/*返回.aaa，且title=123
+		 	必须使用$(this)来表示要判断的元素
+		 	否则不管function里的是true还是false都和调用的元素无关*/
+				console.log("判断.aaa的title是否为123：" + 
+					$('.aaa').is(function(){
+						return $(this).attr('title')=='123';
+				}))
+				
+				
+
+/*hasClass	和is类似，但只能判断class		（不加点）*/
+				console.log($('li').eq(2).hasClass('aaa'));
+				
+				
+/*slice(3,7)	从第四个到第七个
+  slice(n)		从第n个后面开始一直到最后*/
+				$('li').slice(3,7).css('background-color','yellow');
+				$('li').slice(2).css('color','red');
+			/*slice(3,-2)	从第四个到第-2个*/
+				$('li').slice(3,-2).css('font-size','30px');
+				
+			})
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>11111111111111</li>
+			<li class="aaa">22222222222222222222</li>
+			<li class="aaa" title="123">3333333333333</li>
+			<li>4444444444444444444444</li>
+			<li>555555555555555555</li>
+		</ul>
+		
+		<ul>
+			<li>11111111111111</li>
+			<li>22222222222222222222</li>
+			<li>3333333333333</li>
+			<li>4444444444444444444444</li>
+			<li>555555555555555555</li>
+		</ul>
+		
+		<ul>
+			<li>11111111111111</li>
+		</ul>
+	</body>
+</html>

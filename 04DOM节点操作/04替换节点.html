@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+/*replaceWith()		将.aaa用span替换掉*/				
+				$('.aaa').replaceWith('<span>替换aaaa</span>');
+/*replaceAll()		用span将.bbb替换*/				
+				$('<span>替换bbbb</span>').replaceAll('.bbb')
+			})
+			
+		</script>
+	</head>
+	<body>
+		<div class="aaa">aaaaaaaaaaa</div><br />
+		<div class="bbb">bbbbbbbbbbbbbb</div>
+		
+		
+	</body> 
+</html>

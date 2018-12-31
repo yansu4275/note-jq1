@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{width: 100px;height: 100px;}
+			#ccc{background-color: yellow;}
+			#ddd{background-color: red;}
+		</style>
+		
+		
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				$('#aaa').bind('click',function(){
+					console.log("这种看的比较清晰")
+				})
+				
+				$('#bbb').bind('click',fn);
+				function fn(){
+					console.log('这种删除时比较方便')
+				}
+				
+/*绑定多个事件*/				
+				$('#ccc').bind('mouseover mouseout',function(){
+					$(this).html(function(index,value){
+						return value + '1';
+					})
+				})
+				
+				
+/*绑定不同效果的事件，事件可以不加引号，注意逗号*/		
+				$('#ddd').bind({
+					'mouseover':function(){
+						console.log("鼠标移入")
+					},		/***************************************/
+					mouseout:function(){
+						console.log("鼠标移出")
+					}
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<input type="button" name="" id="aaa" value="按钮" /><br />
+		<input type="button" name="" id="bbb" value="按钮" /><br />
+		
+		<div id="ccc"></div>
+		
+		<div id="ddd">鼠标移入移出触发不同</div>		
+	</body>
+</html>

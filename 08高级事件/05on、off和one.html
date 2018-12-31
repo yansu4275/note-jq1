@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		<script type="text/javascript">
+/*普通绑定：bind
+    普通解绑：unbind
+    事件委托：live		delegata
+    解除委托：die		undelegata*/
+   
+/*on：绑定 		off：删除	one：执行一次自动删除*/   
+			$(function(){
+				
+				$('.aaa').on('click',{user:'严肃'},function(e){
+					console.log('添加属性：'+e.data.user)
+				})
+		
+		/*多种样式*/
+				$('.bbb').on({
+					mouseover:function(){
+						console.log('移入')
+					},
+					mouseout:function(){
+						console.log('移出')
+					}
+				})
+				
+			})
+		</script>
+	</head>
+	<body>
+			<input type="button"class="aaa" value="按钮" /><br />		
+			<input type="button"class="bbb" value="多个属性" /><br />		
+			<input type="button"class="ccc" value="按钮" /><br />		
+			
+	</body>
+</html>

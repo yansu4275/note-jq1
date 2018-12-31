@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				$('.aaa').click(function(){
+					console.log('000000')
+				})
+
+/*.clone()	复制节点，通常和appendTo()或append()一起使用，将节点复制到某位置
+ 		clone(true)：将节点的事件处理也复制
+ 		clone(false/空)：只复制节点，不复制事件处理*/
+				$('.aaa').clone(true).appendTo('body');
+				$('body').append($('.bbb').clone());
+				
+/*remove()	删除节点，删除的节点恢复时不保留行为、事件处理*/				
+				$('.ccc').remove()
+		/*remove()	括号里可以传参，精确查找*/		
+				$('div').remove('.eee')
+				
+/*detach()	删除节点。删除的节点恢复时保留行为和事件处理
+ 				$('**').detach().clone()*/
+
+/*empty()	删除节点里的内容，保留节点*/
+			})
+			
+		</script>
+	</head>
+	<body>
+		<div class="aaa">aaaaaaaaaaa</div>
+		<div class="bbb">bbbbbbbbbbbbbb</div>
+		<div class="ccc">cccccccccccc</div>
+		<div class="ddd">
+			<div class="eee">eeeeeeeeeeee</div>
+		</div>
+		
+	</body> 
+</html>

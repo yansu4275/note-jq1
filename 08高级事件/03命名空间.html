@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		<script type="text/javascript">
+			$(function(){
+/*命名空间：
+ * 有时想对事件进行移除，但一个元素绑定多个事件比较麻烦，可以用命名空间解决
+ 		感觉有些类似class*/
+				$('input').bind('click.aaa',function(){
+					console.log('aaa')
+				});
+				$('input').bind('click.bbb',function(){
+					console.log('bbb')
+				})
+				
+				
+				$('input').unbind('.aaa')
+			})
+		</script>
+	</head>
+	<body>
+		<input type="button" name="" id="" value="按钮" />
+	</body>
+</html>

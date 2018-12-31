@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="js/jquery-3.2.0.js" type="text/javascript"></script>
+</head>
+
+<body>
+<div>元素一</div>
+<div>元素二</div>
+<div>元素三</div>
+
+    <script type="text/javascript">
+
+    		var div = document.getElementsByTagName('div'); //dom对象
+            var $div = $(div);
+		    //将dom节点div转化为$div的jquery对象
+            // $div =  ?
+             
+			$('div:eq(0)').css('color', 'red'); //给第一个元素设置颜色
+            $('div:eq(1)').css('color','yellow');//给第二个元素设置颜色
+            $('div:eq(2)').css('color','blue');//给第三个元素设置颜色
+            
+    </script>
+
+
+
+
+
+
+
+</body>
+
+</html>

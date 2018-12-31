@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{width:200px;height:50px;background:orange;}
+			.aaa{display:none;}
+		</style>
+		
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		<script type="text/javascript">
+			$(function(){
+		/*fadeIn	淡入*/		
+				$('#aaa').click(function(){
+					$('.aaa').fadeIn('slow')
+				})
+				
+		/*fadeOut	淡出*/		
+				$('#bbb').click(function(){
+					$('.bbb').fadeOut('slow')
+				})
+				
+		/*fadeToggle	淡入淡出切换*/		
+				$('#ccc').click(function(){
+					$('.ccc').fadeToggle('slow')
+				})
+		
+		/*fadeTo	透明度到		0~1之间*/
+				var i = 1;
+				$('#ddd').click(function(){
+					$('.ddd').fadeTo('fast',i);
+					i = i-0.2;
+					
+				})
+				
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div class="aaa"></div>
+		<button id="aaa">淡入</button><br />
+		
+		<div class="bbb"></div>
+		<button id="bbb">淡出</button><br />
+		
+		<div class="ccc"></div>
+		<button id="ccc">淡入淡出切换</button>
+		
+		<div class="ddd"></div>
+		<button id="ddd">透明度到</button>
+	</body>
+</html>

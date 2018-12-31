@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery-3.2.0.js" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+//wrap(html)	在外层添加一个节点，原标签会在添加的节点的内部后面				
+				$('.aaa').wrap('<strong>0000</strong>');
+	/*添加的节点没有内容时：*/	
+				$('.bbb').wrap('<strong />');
+	/*添加多个节点*/			
+				$('.ccc').wrap('<strong><em></em></strong>');
+				
+				
+				
+//wrap(element)	向指定元素包裹一层DOM对象节点	
+	/*获取body中的strong添加到.ddd外部，会产生一个多与代码*/
+				$('.ddd').wrap($('.abc').get(0));
+				
+	/*创建一个临时DOM*/			
+				$('.eee').wrap(document.createElement('strong'))
+				
+	/*wrap(function(index))		使用匿名函数向指定函数包裹一层自定义内容*/			
+				$('span').slice(5,7).wrap(function(index){
+					return '<strong>' + index + '</strong>'
+				})
+
+
+//unwrap()	移除一层，想移除几层就要写几个unwarp(),从里往外
+				$('.hhh').unwrap().unwrap()
+
+
+//wrapAll(html)	将所有的指定类型元素包裹在一个元素里面
+//wrapAll(element)	将所有指定类型元素包裹一层DOM对象节点
+
+
+//wrapInner		只包裹内容，如下，列表中原点不变色
+				$('li').wrapInner('<span style="color: red;"></span>')
+				
+//wrapInner(element)	向指定元素包裹一层DOM对象节点
+/*wrapInner(function(index))  使用匿名函数向指定函数内层包裹一层自定义内容*/			
+			})
+		</script>
+	</head>
+	<body>
+		<span class="aaa">1111</span><br />
+		<span class="bbb">2222</span><br />
+		<span class="ccc">添加多个节点</span><br />
+		
+		<span class="ddd">获取</span><br />
+		<strong class="abc"></strong>
+		
+		<span class="eee">临时DOM</span><br />
+		
+		<span class="fff">匿名函数</span><br />
+		<span class="ggg">匿名函数</span><br />
+		
+		<strong>
+			<em>
+				<span class="hhh">移除</span>
+			</em>
+		</strong>
+		
+		<ul>
+			<li>2222</li>
+			<li>3333</li>
+			<li>4444</li>
+		</ul>
+		
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+/*keydown:按下	keydown：弹起	返回的是键码，使用keyCode*/				
+				$('#aaa').keydown(function(e){
+					console.log(e.keyCode)
+				})
+				$('#bbb').keyup(function(e){
+					console.log(e.keyCode)
+				})
+				
+				
+/*keypress		返回的是字符编码，使用charCpde*/				
+				$('#ccc').keypress(function(e){
+					console.log(e.charCode)
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<input type="text" name="" id="aaa" value="" /><br />
+		<input type="text" name="" id="bbb" value="" /><br />
+		<input type="text" name="" id="ccc" value="" /><br />
+		
+	</body>
+</html>

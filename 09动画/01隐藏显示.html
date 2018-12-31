@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{width: 200px;height:25px;background-color: yellow;}
+		</style>
+		
+		
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+	
+		<script type="text/javascript">
+			$(function(){
+/*hide()	隐藏元素，可设置动画时间*/	
+		/*function	完成前面的代码后再运行function里的*/
+				$('.aaa').click(function(){
+					$('div:first').hide(1000,function(){
+						console.log('执行隐藏1000ms动画完毕')
+					}) 
+				})
+/*show()	显示元素*/				
+				$('.bbb').click(function(){
+					$('div:first').show(1000,function(){
+						console.log('执行显示完毕')
+					})
+				})
+				
+/*.hide().show()	隐藏后显示*/				
+				$('.ccc').click(function(){
+					$('div:eq(1)').hide("fast").show('slow')
+				})
+				
+/*toggle()		隐藏显示切换*/				
+				$('.ddd').click(function(){
+					$('div:eq(2)').toggle("fast")
+				})
+				
+/*回调函数	一个完成后再运行下一个，可实现列队动画*/	
+	/*从开头隐藏，从开头显示*/
+				$('.eee').click(function(){
+					$('div:eq(3)').toggle('fast',function(){
+						$('div:eq(4)').toggle('fast')
+					})
+				})
+				
+				
+/******************************************************************/	
+	/*队列动画，递归自调用*/
+	/*从开头隐藏，从末尾显示*/
+				$('.fff').click(function(){
+					$('.abcd').first().hide('fast',function testShow(){
+						$(this).next().hide('fast',testShow);
+					}) 
+				});
+				$('.ggg').click(function(){
+					$('.abcd').last().show('fast',function testShow(){
+						$(this).prev().show('fast',testShow)
+					})
+				})
+				 
+				
+			}) 
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<button class="aaa">点击隐藏</button><br />
+		<button class="bbb">点击显示</button>
+		
+		
+		<div></div>
+		<button class="ccc">点击显示后再显示</button><br />
+		
+		<div>隐藏/显示切换</div>
+		<button class="ddd">隐藏/显示切换</button><hr />
+		
+		<div>1</div><br />
+		<div>2</div>
+		<button class="eee">列队动画</button><hr />
+		
+		
+		<span>
+		<div class="abcd">1</div>
+		<div class="abcd">2</div>
+		<div class="abcd">3</div>
+		</span>
+		<button class="fff">隐藏</button>
+		<button class="ggg">显示</button>
+	</body>
+</html>

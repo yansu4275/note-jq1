@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#aaa{width:100px;
+			background-color: yellow;}
+			#bbb{background-color: red;}
+			#ccc{width:100px;
+			background-color: green;}
+		</style>
+		
+		<script src="../js/jquery-3.2.0.js" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+	/*两种方法获取元素参数，第一种返回值有单位，但第二种更好*/			
+				console.log($('#aaa').css('width'));
+				console.log($('#aaa').width());
+		/*设置参数，可不加引号和单位，默认单位为	px	*/		
+				$('div:eq(1)').width(50);
+		/*计算	建议加上单位，更加清晰*/		
+				$('div:eq(2)').width(function(index,width){
+					return width - 70 + 'px';
+				})
+//width()				获取元素高度				
+//innerWidth()		获取元素高度,包含内边距padding
+//outerWidth()		获取元素高度,包含边框border和内边距padding
+//outerWidth(ture)	获取元素高度,包含边框,内边距,和外边距
+				$('.ddd').css({
+					'background-color':'red',
+					'width':'100px',
+					'height':'100px',
+					'border':'10px blue solid',
+					'padding':'25px',
+					'margin':'25px'
+				})
+				console.log("元素高度："+$('.ddd').width()+"px");
+				console.log("元素和内边距："+$('.ddd').innerWidth()+"px");
+				console.log("元素边框内边距："+$('.ddd').outerWidth()+"px");
+				console.log("元素边框内外边距："+$('.ddd').outerWidth(true)+"px");
+			})
+		</script>
+		
+	</head>
+	<body>
+		<div id="aaa">00000000000000000000</div>
+		<div id="bbb">00000000000000000000</div>
+		<div id="ccc">00000000000000000000</div>
+		
+		<div class="ddd"></div>
+	</body>
+</html>

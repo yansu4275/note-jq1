@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery-3.2.0.js" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+			/*选定这个属性*/	
+			  	$('a[title]').css('color','red')
+			  	
+			/*选定具有这个属性=这个属性值的		ie6不支持*/  	
+				$('a[title=aaa1]').css('font-size','20px');
+				
+			/*选定具有这个属性且开头匹配的*/	
+				$('a[title^=aaa]').css('font-weight',"bold");
+			
+			/*选定具有这个属性且结尾匹配的*/
+				$('a[title$=1]').css('background-color','yellow')
+				
+			/*选定具有这个属性且内容有aaa的*/	
+				$('a[title*=aaa]').css('font-style','italic')
+				
+			})
+		</script>
+		
+	</head>
+	<body>
+		<a title="aaa1">1111</a><br />
+		<a title="bbb1">2222</a><br />
+		<a>3333</a><br />
+		<a title="bbb4">4444</a><br />
+		<a title="aaa5">5555</a><br />
+	</body>
+</html>

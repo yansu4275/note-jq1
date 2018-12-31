@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery-3.2.0.js" type="text/javascript"></script>
+		
+<!--样式的传出-->		
+		<script type="text/javascript">
+		$(function(){
+			var box=$('#aaa').css(['color','width','height']);
+
+		/*js方法	  for in*/
+//			for(var i in box){
+//				console.log(i+':'+box[i]);
+//			}
+			
+			
+			
+		/*jQuery方法 	each*/
+			/*遍历js原生代码：*************************************
+		    	box：目标	attr： 属性名		value：属性值*/
+			$.each(box, function(attr,value) {
+				console.log(attr + ":" + value);
+			});
+			
+			/*遍历jQuery代码*/
+			$('div').each(function(index,element){
+				console.log(index + ":" + element);
+			}); 
+			 
+		})
+		
+		</script>
+		
+	</head>
+	<body>
+		<div id="aaa">
+			000000000000000000000
+		</div>
+	</body>
+</html>

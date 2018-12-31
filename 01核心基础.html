@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.2.0.js" type="text/javascript"></script>
+		
+		
+		<script  type="text/javascript">
+			$(function(){                       /*执行一个匿名函数*/
+//				$('#aaa').css('color','red');   /*执行id元素的选择及功能函数*/
+				
+				alert($);                       /*jQuery对象的内部*/
+				alert($());                     /*返回的jQuery对象*/
+				alert($('#aaa'));               /*返回的jQuery对象*/
+				alert($('#aaa').css('color','red').css('font-size','20px').css('font-weight','bold'));  /*返回的jQuery对象*/
+				
+				alert(document.getElementById("aaa"));   /*返回原生DOM对象*/
+				alert($("#aaa").get(0));                 /*返回原生DOM对象*/
+				alert($('#aaa')[0])         /*简写*/
+			})
+			
+		</script>
+		
+	</head>
+	<body>
+		<div id="aaa">jQuery代码风格</div>
+	</body>
+</html>

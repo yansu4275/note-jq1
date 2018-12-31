@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+		/*bind绑定了三个事件，按钮越多绑定就越多*/		
+				$('.aaa').bind('click',function(){
+					console.log('bind绑定了三个事件')
+				});
+		
+/*live已经不推荐使用，需要向上兼容
+		 	绑定的是document而不是input，所以只会绑定一次事件*/
+//				$('.bbb').live('click',function(){
+//					console.log('只绑定一次事件')
+//				})
+				
+				$('.ccc').bind('click',function(){
+					$(this).clone(true).appendTo('#abc')
+				})
+				
+		
+	/*live语义不清晰，没指定绑定了谁
+	 	delegate 语义清晰，绑定了谁就以谁开头
+	 		通过父元素调用*********************************************/
+				$('#bcd').delegate('.ddd','click',function(){
+					$(this).clone(true).appendTo('#bcd')
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div style="width:100px;height:110px;background-color:yellow;">
+			<input type="button" class="aaa" value="按钮" />
+			<br /><br />
+			<input type="button" class="aaa" value="按钮" />
+			<br /><br />
+			<input type="button" class="aaa" value="按钮" />
+		</div>
+		<br /><br />
+		
+		
+		<div style="width:100px;height:110px;background-color:green;">
+			<input type="button" class="bbb" value="按钮" />
+			<br /><br />
+			<input type="button" class="bbb" value="按钮" />
+			<br /><br />
+			<input type="button" class="bbb" value="按钮" />
+		</div>
+		
+		<div style="height:110px;background-color:orange;" id="abc">
+			<input type="button" class="ccc" value="按钮" /><br />
+			bind绑定，点击按钮复制，但只有第一个按钮可以点击，其余的不行，live的每个都可以
+		</div><br /><br />
+		
+		
+		<div style="height:110px;background-color:orange;" id="bcd">
+			<input type="button" class="ddd" value="按钮" />
+		</div><br /><br />
+	</body>
+</html>

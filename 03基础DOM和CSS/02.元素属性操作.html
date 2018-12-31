@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery-3.2.0.js" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+		/*获取某个元素key属性的属性值*/		
+				console.log($('#aaa').attr('id'));
+				
+		/*设置某个元素key属性的属性值*/		
+				$('#aaa').attr('title','我是域名');
+				
+		/*设置某个元素多个key属性的属性值*/		
+				$('#aaa').attr({
+					'class':'abcd',
+					'data':'123'
+				})
+
+
+/*追加参数*******************************************************************/
+				/*index		从0开始索引*/
+				$('div').attr('title',function(index,value){
+					return '原来title：'+value+'现在title：我是'+ (index+1)+"号域名"
+				})
+			})
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<div><span>11111111111</span></div>
+		<div><span>2222222222222</span></div>
+		<div><span>2222222222222</span></div>
+		
+		<p id="aaa">aaaaaaaaaaaaaaaaaaaaaa</p>
+		
+		
+		
+	</body>
+</html>

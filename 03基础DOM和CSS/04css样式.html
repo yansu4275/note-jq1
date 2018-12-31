@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery-3.2.0.js" type="text/javascript"></script>
+		
+<!--css样式写法-->	
+		<script type="text/javascript">
+		$(function(){
+	/*更清晰*/		
+			$('#aaa').css({
+				'color':"blue",
+				'background-color':'yellow',
+				'width':'200px',
+				'height':'40px',
+			})
+			
+	/*比较乱*/		
+			$('#bbb').css('color','red').css('background-color','gray');
+			
+			
+			
+/*css样式中需要计算的，可以局部操作*/			
+			$('#ccc').css('width',function(index,value){
+				return (parseInt(value)-100) + 'px';
+			}).css('background','greenyellow')
+		})
+		
+		
+			
+		</script>
+		
+	</head>
+	<body>
+		<div id="aaa">00000000000000000000</div>
+		<div id="bbb">00000000000000000000</div>
+		<div id="ccc">00000000000000000000</div>
+	</body>
+</html>

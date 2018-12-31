@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{width: 100px;height: 100px;background-color: yellow;
+			}
+		</style>
+		
+		
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+/*foucus和blur必须是当前元素激活
+ 	将input放在div里，点击input无法激活*/
+				$('.ccc').focus(function(){
+					console.log('光标激活1')
+				})
+				$('.ccc').blur(function(){
+					console.log('光标丢失1')
+				})
+				
+				
+/*foucusin和focusout可以使子元素激活*/				
+				$('.ddd').focusin(function(){
+					console.log('光标激活2')
+				})
+				$('.ddd').focusout(function(){
+					console.log('光标丢失2')
+				})
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div class="ccc">
+			<input type="text" name="" id="aaa" value="" />
+		</div>
+		<br />
+		<div class="ddd">
+			<input type="text" name="" id="bbb" value="" />
+		</div>
+		
+		
+	</body>
+</html>

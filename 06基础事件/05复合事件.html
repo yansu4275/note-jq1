@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{width:100px;height:100px;background-color: yellow;}
+		</style>
+		
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		<script type="text/javascript">
+			$(function(){
+/*ready(fn)		当DOM加载完毕触发事件*/
+
+/*hover(fn1,fn2)	当鼠标移入触发fn1，移出触发fn2
+ 		结合了.mouseenter()和mouseleave()，并不是mouseover()和mouseout()*/
+				$('#aaa').hover(function(){
+					$(this).css('background',"red")
+				},function(){
+					$(this).css('background','green')
+				})
+				
+/*toggle(fn1,fn2)	点击一次触发一次
+ * *****************************************************************
+ 		1.9版本删除，使用需要安装向上兼容插件*/
+				$('#div').toggle(function(){
+					$(this).css('background','red')
+				},function(){
+					$(this).css('background','green')
+				},function(){
+					$(this).css('background','blue')
+				})
+				
+				
+		/*可以通过else if循环达到相同效果*/		
+				var a = 1;
+				$('#ccc').click(function(){
+					if(a==1){
+						$(this).css('background','red');
+						a=2;
+					}else if(a==2){
+						$(this).css('background','green');
+						a=3;
+					}else if(a==3){
+						$(this).css('background','blue');
+						a=1
+					}
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div id="aaa">鼠标移入变红，移出变绿</div>
+		<br />
+		<div id="bbb">点击变红，再点变绿，循环，1.9之后的版本不支持</div>
+		<br />
+		<div id="ccc">使用if循环语句完成点击切换颜色</div>
+	</body>
+</html>

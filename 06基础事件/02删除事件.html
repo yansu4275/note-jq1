@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{width: 100px;height: 100px;}
+			#ccc{background-color: yellow;}
+			#ddd{background-color: red;}
+		</style>
+		
+		
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		
+		<script type="text/javascript">
+/*unbind	删除事件*/		
+			$(function(){
+		/*对click绑定两个效果*/				
+				$('#aaa').bind('click',fn1);
+				$('#aaa').bind('click',fn2);
+				function fn1(){
+					console.log("fn1")
+				}
+				function fn2(){
+					console.log('fn2')
+				}
+				
+			/*删除绑定了fn1的click事件*/	
+				$('#aaa').unbind('click',fn1)
+				
+				
+			/*在代码运行完一次后删掉*/	
+				$('#ccc').bind('mouseover mouseout',function(){
+					$(this).html(function(index,value){
+						return value + "1";
+					})
+					$('#ccc').unbind()
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<input type="button" name="" id="aaa" value="按钮" /><br />
+		
+		<div id="ccc"></div>
+		
+	</body>
+</html>

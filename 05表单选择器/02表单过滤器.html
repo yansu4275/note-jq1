@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+		<script type="text/javascript">
+			$(function(){
+			/*语义不清晰*/	
+				console.log($('input').eq(1).val())
+			/*通过type选择，语义清晰一点*/	
+				console.log($('input[type=text]').val());
+			/*通过name选择*/	
+				console.log($('input[name=pass]').val());
+
+
+/*:input	:radio	:text	:password	:radio	:checkbox
+  :submit	:reset	:image	:button		:file	:hidden*/
+				console.log("直接伪类："+$(':input').val())
+				console.log("使用伪类:input[name]：" + $(':input[name=pass]').val());
+				
+			})
+		</script>
+	</head>
+	<body>
+		<form>
+			<input type="text" name="user" id="user" value="abc" disabled="disabled"/>
+			<br />
+			<input type="password" name="pass" id="pass" value="123" />
+		</form>
+	</body>
+</html>
